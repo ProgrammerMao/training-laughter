@@ -1,0 +1,252 @@
+[gd_scene load_steps=22 format=3 uid="uid://dr61rbhb2swau"]
+
+[ext_resource type="Script" path="res://dialogue/dialogue.gd" id="1_x3vnw"]
+[ext_resource type="Texture2D" uid="uid://crx6k24eyar48" path="res://images/robot/embarrassed.png" id="2_iqh2k"]
+[ext_resource type="Texture2D" uid="uid://pt4wor0p2i0o" path="res://images/background/parlor.jpg" id="2_vra32"]
+[ext_resource type="Texture2D" uid="uid://8flfvdssphrj" path="res://images/robot/nomal.png" id="3_hd2fc"]
+[ext_resource type="Texture2D" uid="uid://guydh0xr02e4" path="res://images/robot/painful.png" id="4_5bult"]
+[ext_resource type="Texture2D" uid="uid://s867sjw4m8yh" path="res://images/robot/pleased.png" id="5_f2bkr"]
+[ext_resource type="Texture2D" uid="uid://dgxdg6o5opnhn" path="res://images/robot/smile.png" id="6_6pm8e"]
+[ext_resource type="Texture2D" uid="uid://civsx6o3la6ym" path="res://images/women/embarrassed.png" id="7_4kxok"]
+[ext_resource type="Texture2D" uid="uid://bli7fd8mu7cfw" path="res://images/women/normal.png" id="8_odqr7"]
+[ext_resource type="Texture2D" uid="uid://c255y7gc03875" path="res://images/women/smile.png" id="9_cdhq0"]
+[ext_resource type="Texture2D" uid="uid://bgfxa2rog3rjq" path="res://images/man/normal.png" id="11_i600g"]
+[ext_resource type="Texture2D" uid="uid://ctf06n3dltr74" path="res://images/boy/normal.png" id="11_yakfw"]
+[ext_resource type="Texture2D" uid="uid://cs4p3mejembv8" path="res://images/man/painful.png" id="12_4ox4s"]
+[ext_resource type="Texture2D" uid="uid://cw2lets27ypic" path="res://images/boy/pleased.png" id="12_7k2ex"]
+[ext_resource type="Texture2D" uid="uid://3harg3fttebs" path="res://images/boy/smile.png" id="13_ah7n1"]
+[ext_resource type="Texture2D" uid="uid://cqg6j33rblo1" path="res://images/man/smile.png" id="13_iqkc4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h874o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iqh2k")
+}],
+"loop": true,
+"name": &"embarrassed",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hd2fc")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5bult")
+}],
+"loop": true,
+"name": &"painful",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_f2bkr")
+}],
+"loop": true,
+"name": &"pleased",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6pm8e")
+}],
+"loop": true,
+"name": &"smile",
+"speed": 0.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yt1lf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4kxok")
+}],
+"loop": true,
+"name": &"embarrassed",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_odqr7")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_cdhq0")
+}],
+"loop": true,
+"name": &"smile",
+"speed": 0.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_38cya"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_yakfw")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_7k2ex")
+}],
+"loop": true,
+"name": &"pleased",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_ah7n1")
+}],
+"loop": true,
+"name": &"smile",
+"speed": 0.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5allj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_i600g")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_4ox4s")
+}],
+"loop": true,
+"name": &"painful",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_iqkc4")
+}],
+"loop": true,
+"name": &"smile",
+"speed": 0.0
+}]
+
+[sub_resource type="Theme" id="Theme_56isx"]
+
+[node name="dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x3vnw")
+
+[node name="backimage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vra32")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="backcolor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.211765)
+
+[node name="robot" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="robot" type="AnimatedSprite2D" parent="robot"]
+position = Vector2(240, 448.524)
+scale = Vector2(0.806723, 0.75885)
+sprite_frames = SubResource("SpriteFrames_h874o")
+animation = &"embarrassed"
+
+[node name="human" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="woman" type="AnimatedSprite2D" parent="human"]
+position = Vector2(804, 436)
+scale = Vector2(0.739496, 0.788599)
+sprite_frames = SubResource("SpriteFrames_yt1lf")
+animation = &"normal"
+
+[node name="boy" type="AnimatedSprite2D" parent="human"]
+visible = false
+position = Vector2(800, 448.524)
+scale = Vector2(0.752941, 0.75885)
+sprite_frames = SubResource("SpriteFrames_38cya")
+animation = &"smile"
+
+[node name="man" type="AnimatedSprite2D" parent="human"]
+position = Vector2(788, 472)
+scale = Vector2(0.793277, 0.703088)
+sprite_frames = SubResource("SpriteFrames_5allj")
+animation = &"normal"
+
+[node name="panle" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -248.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_56isx")
+
+[node name="rect" type="ReferenceRect" parent="panle"]
+layout_mode = 2
+offset_right = 1008.0
+offset_bottom = 240.0
+border_color = Color(0.8, 0.8, 0.8, 1)
+border_width = 3.0
+editor_only = false
+
+[node name="text" type="Label" parent="panle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+autowrap_mode = 1
+
+[node name="prompt" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 704.0
+offset_right = 192.0
+offset_bottom = 752.0
+theme_override_colors/font_color = Color(1, 0.12549, 0, 1)
+theme_override_font_sizes/font_size = 32
+vertical_alignment = 2

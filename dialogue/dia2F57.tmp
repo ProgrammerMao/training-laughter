@@ -1,0 +1,209 @@
+[gd_scene load_steps=14 format=3 uid="uid://dr61rbhb2swau"]
+
+[ext_resource type="Script" path="res://dialogue/dialogue.gd" id="1_x3vnw"]
+[ext_resource type="Texture2D" uid="uid://crx6k24eyar48" path="res://images/robot/embarrassed.png" id="2_iqh2k"]
+[ext_resource type="Texture2D" uid="uid://8flfvdssphrj" path="res://images/robot/nomal.png" id="3_hd2fc"]
+[ext_resource type="Texture2D" uid="uid://guydh0xr02e4" path="res://images/robot/painful.png" id="4_5bult"]
+[ext_resource type="Texture2D" uid="uid://s867sjw4m8yh" path="res://images/robot/pleased.png" id="5_f2bkr"]
+[ext_resource type="Texture2D" uid="uid://dgxdg6o5opnhn" path="res://images/robot/smile.png" id="6_6pm8e"]
+[ext_resource type="Texture2D" uid="uid://civsx6o3la6ym" path="res://images/women/embarrassed.png" id="7_4kxok"]
+[ext_resource type="Texture2D" uid="uid://bli7fd8mu7cfw" path="res://images/women/normal.png" id="8_odqr7"]
+[ext_resource type="Texture2D" uid="uid://c255y7gc03875" path="res://images/women/smile.png" id="9_cdhq0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h874o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iqh2k")
+}],
+"loop": true,
+"name": &"embarrassed",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hd2fc")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5bult")
+}],
+"loop": true,
+"name": &"painful",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_f2bkr")
+}],
+"loop": true,
+"name": &"pleased",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6pm8e")
+}],
+"loop": true,
+"name": &"smile",
+"speed": 0.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yt1lf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4kxok")
+}],
+"loop": true,
+"name": &"embarrassed",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_odqr7")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_cdhq0")
+}],
+"loop": true,
+"name": &"smile",
+"speed": 0.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujb22"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"embarrassed",
+"speed": 0.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"normal",
+"speed": 0.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"painful",
+"speed": 0.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"pleased",
+"speed": 0.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"smile",
+"speed": 0.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"unknow",
+"speed": 0.0
+}]
+
+[sub_resource type="Theme" id="Theme_56isx"]
+
+[node name="dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x3vnw")
+
+[node name="backcolor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.211765)
+
+[node name="robot" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="robot" type="AnimatedSprite2D" parent="robot"]
+position = Vector2(224, 448.524)
+scale = Vector2(0.752941, 0.75885)
+sprite_frames = SubResource("SpriteFrames_h874o")
+animation = &"embarrassed"
+
+[node name="human" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="woman" type="AnimatedSprite2D" parent="human"]
+position = Vector2(804, 436)
+scale = Vector2(0.739496, 0.788599)
+sprite_frames = SubResource("SpriteFrames_yt1lf")
+animation = &"embarrassed"
+
+[node name="boy" type="AnimatedSprite2D" parent="human"]
+sprite_frames = SubResource("SpriteFrames_ujb22")
+animation = &"unknow"
+
+[node name="man" type="AnimatedSprite2D" parent="human"]
+sprite_frames = SubResource("SpriteFrames_ujb22")
+animation = &"unknow"
+
+[node name="panle" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -248.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_56isx")
+
+[node name="rect" type="ReferenceRect" parent="panle"]
+layout_mode = 2
+offset_right = 1008.0
+offset_bottom = 240.0
+border_color = Color(0.8, 0.8, 0.8, 1)
+border_width = 3.0
+editor_only = false
+
+[node name="text" type="Label" parent="panle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "开心的笑：这种笑通常表现为嘴巴张开，嘴角上扬，有时还会伴随着眼睛的眯起。它是由内心愉悦的情绪引发的，常常出现在人们感到快乐、满足或者开心的时候。开心的笑可以迅速传递出积极的情绪，使得周围的人感受到快乐和轻松。"
+autowrap_mode = 1
+
+[node name="matched" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 432.0
+offset_right = 168.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 32
+text = "匹配度："
+vertical_alignment = 2

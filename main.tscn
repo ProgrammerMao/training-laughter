@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bedwlt1044chx"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_gmqn4"]
+[ext_resource type="PackedScene" uid="uid://cncucrsmhcvdn" path="res://control/control.tscn" id="3_d82c0"]
+[ext_resource type="PackedScene" uid="uid://dr61rbhb2swau" path="res://dialogue/dialogue.tscn" id="3_mmkcv"]
+
+[sub_resource type="Animation" id="Animation_2j45y"]
+resource_name = "transform"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transform/transform:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j36ge"]
+_data = {
+"transform": SubResource("Animation_2j45y")
+}
+
+[node name="main" type="Node"]
+script = ExtResource("1_gmqn4")
+
+[node name="dialogue" parent="." instance=ExtResource("3_mmkcv")]
+visible = false
+
+[node name="control" parent="." instance=ExtResource("3_d82c0")]
+
+[node name="transform" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j36ge")
+}
+autoplay = "transform"
+
+[node name="transform" type="ColorRect" parent="transform"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="animation_finished" from="transform" to="." method="_on_transform_animation_finished"]

@@ -1,0 +1,176 @@
+[gd_scene load_steps=2 format=3 uid="uid://cncucrsmhcvdn"]
+
+[ext_resource type="Script" path="res://control/control.gd" id="1_o5oqm"]
+
+[node name="control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5oqm")
+
+[node name="backcolor" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.541176, 0.541176, 0.541176, 0.784314)
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "关键词设置"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="keyword" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pleased" type="Label" parent="keyword"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 80.0
+offset_right = 192.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 24
+text = "高兴的笑"
+vertical_alignment = 1
+
+[node name="edit" type="LineEdit" parent="keyword/pleased"]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 896.0
+offset_bottom = 48.0
+text = "愉悦 积极"
+placeholder_text = "关键词1 关键词2 关键词3 ..."
+max_length = 22
+
+[node name="painful" type="Label" parent="keyword"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 144.0
+offset_right = 192.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 24
+text = "苦笑"
+vertical_alignment = 1
+
+[node name="edit" type="LineEdit" parent="keyword/painful"]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 896.0
+offset_bottom = 48.0
+placeholder_text = "关键词1 关键词2 关键词3 ..."
+max_length = 22
+
+[node name="smile" type="Label" parent="keyword"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 208.0
+offset_right = 192.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 24
+text = "微笑"
+vertical_alignment = 1
+
+[node name="edit" type="LineEdit" parent="keyword/smile"]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 896.0
+offset_bottom = 48.0
+text = "轻松 愉悦"
+placeholder_text = "关键词1 关键词2 关键词3 ..."
+max_length = 22
+
+[node name="embarrassed" type="Label" parent="keyword"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 272.0
+offset_right = 192.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 24
+text = "尴笑"
+vertical_alignment = 1
+
+[node name="edit" type="LineEdit" parent="keyword/embarrassed"]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 896.0
+offset_bottom = 48.0
+placeholder_text = "关键词1 关键词2 关键词3 ..."
+max_length = 22
+
+[node name="lable" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 336.0
+offset_bottom = 384.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "成就感  积极  轻松  温馨  不自在  幸福  不自然  掩饰  僵硬  愉悦  刻意 亲切自然 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="test" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -384.0
+offset_right = 448.0
+offset_bottom = -64.0
+grow_vertical = 0
+
+[node name="boy" type="Button" parent="test"]
+layout_mode = 0
+offset_top = 136.0
+offset_right = 320.0
+offset_bottom = 192.0
+text = "男孩"
+
+[node name="woman" type="Button" parent="test"]
+layout_mode = 0
+offset_top = 264.0
+offset_right = 320.0
+offset_bottom = 320.0
+text = "女人"
+
+[node name="man" type="Button" parent="test"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 320.0
+offset_bottom = 256.0
+text = "男人"
+
+[node name="debug" type="Button" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 648.0
+offset_right = 960.0
+offset_bottom = 704.0
+text = "debug"
+
+[connection signal="text_changed" from="keyword/pleased/edit" to="." method="_on_edit_text_changed"]
+[connection signal="text_changed" from="keyword/painful/edit" to="." method="_on_edit_text_changed"]
+[connection signal="text_changed" from="keyword/smile/edit" to="." method="_on_edit_text_changed"]
+[connection signal="text_changed" from="keyword/embarrassed/edit" to="." method="_on_edit_text_changed"]
+[connection signal="pressed" from="test/boy" to="." method="_on_boy_pressed"]
+[connection signal="pressed" from="test/woman" to="." method="_on_woman_pressed"]
+[connection signal="pressed" from="test/man" to="." method="_on_man_pressed"]
